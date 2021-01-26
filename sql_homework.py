@@ -10,7 +10,7 @@ logging.basicConfig(level=logging.DEBUG, format="%(levelname)s: %(asctime)s - %(
 def select(database, query):
 	try:
 		conn = sqlite3.connect(database)
-		logging.info(f"Created database {database} inside of `select` function.")
+		logging.info(f"Connected database {database} inside of `select` function.")
 
 	except Error as e:
 		print(e)
@@ -30,7 +30,7 @@ def select(database, query):
 def dump_into_json(database, select_query):
 	try:
 		conn = sqlite3.connect(database)
-		logging.info(f"Created database {database} inside of `dump_into_json` function.")
+		logging.info(f"Connected database {database} inside of `dump_into_json` function.")
 		curs = conn.cursor()
 	except Error as e:
 		print(e)
@@ -45,7 +45,7 @@ def dump_into_json(database, select_query):
 db = os.path.join(os.getcwd(), "film.db")
 
 query = """SELECT title FROM film WHERE title LIKE 'B%';"""
-largest_query = """ SELECT title, max(length) AS length FROM film; """
+largest_query = """SELECT title, max(length) AS length FROM film;"""
 json_query = """SELECT * FROM film;"""
 
 # select(db, query)
@@ -62,7 +62,7 @@ json_query = """SELECT * FROM film;"""
 ##################################################################
 
 
-extra_query = """ SELECT * FROM film
+extra_query = """SELECT * FROM film
 WHERE release_year > 2010
 AND rate 
 BETWEEN 3 AND 5"""
@@ -72,7 +72,7 @@ def filter_table(database, query):
 	try:
 		conn = sqlite3.connect(database)
 		curs = conn.cursor()
-		logging.info(f"Created database {database} inside of `filter_table` function.")
+		logging.info(f"Connected database {database} inside of `filter_table` function.")
 	except Error as e:
 		print(e)
 
