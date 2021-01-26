@@ -21,7 +21,7 @@ def select(database, query):
 	curs.execute(query)
 
 	result_list = curs.fetchall()
-	logging.info(f"Got the result list from `{query}` {len(result_list)}, {result_list}")
+	logging.debug(f"Got the result list from `{query}` {len(result_list)}, {result_list}")
 	for result_tup in result_list:
 		for result in result_tup:
 			print(result)
